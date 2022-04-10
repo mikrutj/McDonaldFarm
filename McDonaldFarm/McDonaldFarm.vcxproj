@@ -139,12 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Fence.cpp" />
     <ClCompile Include="FenceCalculator.cpp" />
     <ClCompile Include="McDonaldFarm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Fence.h" />
     <ClInclude Include="FenceCalculator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

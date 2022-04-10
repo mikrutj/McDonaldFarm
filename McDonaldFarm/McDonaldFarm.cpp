@@ -2,12 +2,11 @@
 #include <algorithm>
 
 #include "FenceCalculator.h"
-#include "Fence.h"
+
 
 using namespace std;
 
-
-void gameLoop() {
+void start() {
 
     string run;
 
@@ -39,6 +38,18 @@ void gameLoop() {
     cout << "Mission: Accepted... Start the program..." << endl;
 
 }
+
+
+void gameLoop()
+{
+
+    start();
+
+    FenceCalculator c1;
+
+}
+
+
 
 
 int main() {
