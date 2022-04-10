@@ -46,20 +46,24 @@ int FenceCalculator::getFence() {
     return (int)fence;
 }
 
-unsigned long long int getArea (int f, int a)
+unsigned long long int FenceCalculator::getArea (int f, int a)
 {
     //Calculate area
     //----------------------------------
     //2a + b = f
     //so b = f - 2*a
     //area A = a * b  =>  A = a * (f - 2*a)
-    // 
     //----------------------------------
 
     return (unsigned long long int)a * (f - (2 * a));//((f * a) - (2 * pow(a, 2)));
 }
 
-int findA (int f)
+unsigned long long int FenceCalculator::getArea()
+{
+    return (unsigned long long int) a * b;
+}
+
+int FenceCalculator::findA (int f)
 {
     //Calculations 
     //----------------------------------
@@ -74,17 +78,16 @@ int findA (int f)
     // A'(a) = f - 4*a       derivative
     // 
     // A'(a) = 0  <=>  a = f/4
-    // 
     //----------------------------------
 
     double a = (f * 0.25);
-    double area1, area2, area0 = getArea(f, a);
+    double area1, area2;
 
     //Find a bigger area if a != integer
     if (a - (int)a != 0)
     {
-        area1 = getArea(f, ceil(a));
-        area2 = getArea(f, floor(a));
+        area1 = FenceCalculator::getArea(f, ceil(a));
+        area2 = FenceCalculator::getArea(f, floor(a));
 
         if (area1 < area2)
         {
@@ -99,12 +102,19 @@ int findA (int f)
     return a;
 }
 
+int FenceCalculator::getA() {
+    return a;
+}
+
+int FenceCalculator::getB() {
+    return b;
+}
+
 FenceCalculator::FenceCalculator() {
     
-    int fence = getFence();
-    a = findA(fence);
-
-    cout << a << endl;
+    int fence = FenceCalculator::getFence();
+    a = FenceCalculator::findA(fence);
+    b = fence - 2 * a;
 
 }
 

@@ -47,6 +47,8 @@ void gameLoop()
 
     FenceCalculator c1;
 
+    cout << "a = " << c1.getA() << " b = " << c1.getB() << " area = " << c1.getArea();
+
 }
 
 
