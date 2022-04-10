@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <conio.h>
 
 #include "FenceCalculator.h"
 
@@ -35,19 +36,44 @@ void start() {
         transform(run.begin(), run.end(), run.begin(), ::toupper);
     }
 
-    cout << "Mission: Accepted... Start the program..." << endl;
+    cout << "Mission: Accepted... Start the program..." << endl << endl;
 
 }
 
 
-void gameLoop()
-{
+void gameLoop() {
 
     start();
+    
+    string choice = "Y";
+    bool isWrongValue = false;
 
-    FenceCalculator c1;
+    while (true) {
 
-    cout << "a = " << c1.getA() << " b = " << c1.getB() << " area = " << c1.getArea();
+        if (choice == "y" || choice == "Y") {
+            FenceCalculator c1;
+
+            cout << "a = " << c1.getA() << " b = " << c1.getB() << " area = " << c1.getArea();
+
+            choice = "";
+            isWrongValue = false;
+        }
+        else if (choice == "n" || choice == "N")
+        {
+            break;
+        }
+        else
+        {
+            string message = isWrongValue ? 
+                "Wrong value! Try again!\nDo you want to calculate another fence [Y/N]: " : 
+                "Do you want to calculate another fence [Y/N]: ";
+            cout << endl << message;
+
+            cin >> choice;
+            isWrongValue = true;
+        }
+
+    }
 
 }
 
